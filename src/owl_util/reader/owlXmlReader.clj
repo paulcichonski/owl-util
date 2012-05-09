@@ -121,7 +121,7 @@ Needs the correct qname-prepared keywords to build the function."
 
 (comment
   "this next part is all about map munging, need to combine each class map with the predicate maps:
-add the predicate data to the class where the pred domain matches the class (TODO: deal with namespaces)")
+add the predicate data to the class where the pred domain matches the class")
 (defn- munge-c-and-p [classes pred]
   "add the predicate to the class it belongs to"
   (for [class classes]
