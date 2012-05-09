@@ -1,11 +1,11 @@
-This is a very draft attempt at creating some utilities for reading and writing OWL modles. 
+This is a very draft attempt at creating some utilities for reading and writing OWL models. 
 
 Goal is to (eventually) support:
 
 - reading an OWL file and providing a map back of the data
 - providing useful query API into an OWL model
 - writing an OWL model based off a map of data
-- support all OWL syntaxes; code should work accross all without user needing
+- support all OWL syntaxes; code should work across all without user needing
 to specify syntax.
 
 NOTE: this is my first clojure code (EVER), so comments about everything (e.g style, algorithms, use of functions) are appreciated.
