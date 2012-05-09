@@ -1,0 +1,91 @@
+<?xml version="1.0"?>
+<rdf:RDF
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:owl="http://www.w3.org/2002/07/owl#"
+    xmlns="http://scap.nist.gov/vocab/test-usecase#"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+    xmlns:mapping="http://nist.gov/secaut/vocab/mapping#"
+  xml:base="http://scap.nist.gov/vocab/test-usecase">
+  <owl:Ontology rdf:about="">
+    <owl:imports rdf:resource="http://nist.gov/secaut/vocab/mapping"/>
+    <owl:versionInfo rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Created with TopBraid Composer</owl:versionInfo>
+  </owl:Ontology>
+  <owl:Class rdf:ID="Asset">
+    <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Actual instance of a product running on a network.</rdfs:comment>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Asset</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:ID="ProductClass">
+    <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Represents a class of product that may appear on a network</rdfs:comment>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >ProductClass</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:ID="Checklist">
+    <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >A security configuraiton checklist describing how to securely configure a particular product class.</rdfs:comment>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Checklist</rdfs:label>
+  </owl:Class>
+  <owl:ObjectProperty rdf:ID="hasProductClass">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >hasProductClass</rdfs:label>
+    <rdfs:domain rdf:resource="#Asset"/>
+    <rdfs:range rdf:resource="#ProductClass"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="securesProduct">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >securesProduct</rdfs:label>
+    <rdfs:domain rdf:resource="#Checklist"/>
+    <rdfs:range rdf:resource="#ProductClass"/>
+  </owl:ObjectProperty>
+  <owl:DatatypeProperty rdf:ID="hasChecklistId">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >hasChecklistId</rdfs:label>
+    <rdfs:domain rdf:resource="#Checklist"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="hasChecklistName">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >hasChecklistName</rdfs:label>
+    <rdfs:domain rdf:resource="#Checklist"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="hasCpeName">
+    <rdfs:domain rdf:resource="#ProductClass"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >hasCpeName</rdfs:label>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >the CPE representation of the Product Class</rdfs:comment>
+  </owl:DatatypeProperty>
+  <Asset rdf:ID="win7_instance">
+    <hasProductClass>
+      <ProductClass rdf:ID="win7">
+        <hasCpeName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >cpe:/o:microsoft:windows_7</hasCpeName>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Windows 7</rdfs:label>
+      </ProductClass>
+    </hasProductClass>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Windows 7 Asset</rdfs:label>
+  </Asset>
+  <Checklist rdf:ID="win7_usgcb">
+    <securesProduct rdf:resource="#win7"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >USGCB Windows 7 Checklist</rdfs:label>
+    <hasChecklistName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >USGCB Windows 7 Checklist</hasChecklistName>
+    <hasChecklistId rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
+    >295</hasChecklistId>
+  </Checklist>
+</rdf:RDF>
+
+<!-- Created with TopBraid -->

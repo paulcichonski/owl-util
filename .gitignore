@@ -1,0 +1,6 @@
+*.project
+*.classpath
+*.lein-deps-sum
+*.DS_Store
+classes/
+.settings/
