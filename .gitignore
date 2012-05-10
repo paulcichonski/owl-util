@@ -2,5 +2,6 @@
 *.classpath
 *.lein-deps-sum
 *.DS_Store
+lib/
 classes/
 .settings/
