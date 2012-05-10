@@ -1,8 +1,7 @@
 (ns owl-util.test.reader.owlXmlReader
   (:use [owl-util.reader.owlXmlReader]
         [clojure.test])
-  (:require [owl-util.reader.core :as reader-core]
-            [clojure.contrib.zip-filter.xml :as zip-xml])) 
+  (:require [owl-util.reader.core :as reader-core])) 
 
 (def file-loc "test/owl_util/test/data/test-usecase.owl")
 

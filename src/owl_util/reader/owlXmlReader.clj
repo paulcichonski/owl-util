@@ -9,8 +9,8 @@
   (:require [owl-util.reader.core :as reader-core]
             [clojure.zip :as zip]
             [clojure.xml :as xml]
-            [clojure.contrib.zip-filter.xml :as zip-xml]
-            [clojure.contrib.zip-filter :as zf]
+            [clojure.data.zip.xml :as zip-xml]
+            [clojure.data.zip :as zf]
             [clojure.string]))
 ; using the xml zipper strategy illustrated here: http://nakkaya.com/2009/12/07/zipping-xml-with-clojure/
 
