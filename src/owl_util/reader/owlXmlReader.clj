@@ -64,7 +64,7 @@ note: default namespace has a blank ':' keyword, which may need to be generated 
                                              (re-matches #":xmlns" xml-prefix) 
                                              (keyword "")
                                              :else (throw (Exception. 
-                                                            (str "namespace delcaration " xml-prefix " in a format that was not expected"))))]
+                                                            (str "namespace declaration " xml-prefix " in a format that was not expected"))))]
                             [prefix ns]))]
          (reduce conj 
                  {} 
@@ -73,7 +73,7 @@ note: default namespace has a blank ':' keyword, which may need to be generated 
                                                ;; returns all attributes that contain namespace declarations.
                                                #(filter (fn [[key _]] (re-matches #":xmlns.*" (str key))) %)))))))
 
-(comment "this fucntion assumes classes are being defined in a default ns and appends the '#' since
+(comment "this function assumes classes are being defined in a default ns and appends the '#' since
 most tools do not seem to do that. May need to make this code a bit smarter if issues are encountered")
 (defn- find-classes [xml-ont]
   "Returns the lazy sequence of maps for the OWL classes, each map 
