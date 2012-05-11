@@ -6,8 +6,11 @@
   (:require [clojure.data.xml :as xml]))
 
 
-  (comment "currently just sketching out the struture, none of this is legit yet. possibly build off this: http://java.dzone.com/articles/clojure-creating-xml-document")
+  (comment "currently just sketching out the struture, none of this is legit yet. possibly build off this: 
+http://java.dzone.com/articles/clojure-creating-xml-document or this: http://dev.clojure.org/display/DXML/Fuller+XML+support")
 
+
+  
 (defn gen-classes [classes namespaces]
   (for [class classes]
     (xml/element :owl:Class {:rdf:ID class}
@@ -15,14 +18,16 @@
 
 (defn gen-preds [preds namespaces]
   (for [pred preds]
-    (xml/element (pred :type) {:rdf:ID (pred :id)}
-                 (for [domain (pred :domain)]
-                   (xml/element :rdfs:domain {:rdf:resource domain}))
-                 (for [range (pred :range)]
-                   (xml/element :rdfs:range {:rdf:resource range})))))
+    (let [domain-elements (for [domain (pred :domain)]
+                            (xml/element :rdfs:domain {:rdf:resource domain}))
+          range-elements (for [range (pred :range)]
+                           (xml/element :rdfs:range {:rdf:resource range}))
+          aggregate (concat domain-elements range-elements)]
+      ; need to do it this way b/c xml/element only accepts 0-n individual elements, not a seq of them
+      (apply xml/element (pred :type) {:rdf:ID (pred :id)} aggregate))))
 
 (defn gen-rdf-xml [elements namespaces]
-  (xml/element :rdf:RDF {}
+  (apply xml/element :rdf:RDF {}
                elements))
 
 (defn write-owl [classes-and-relationships file-loc]
