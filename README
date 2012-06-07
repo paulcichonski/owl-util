@@ -1,4 +1,4 @@
-This is a very draft attempt at creating some utilities for reading and writing OWL models. 
+This is an attempt at creating some utilities for reading and writing OWL models. 
 
 Goal is to (eventually) support:
 
