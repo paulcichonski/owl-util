@@ -9,3 +9,5 @@ Goal is to (eventually) support:
 to specify syntax.
 
 NOTE: this is my first clojure code (EVER), so comments about everything (e.g style, algorithms, use of functions) are appreciated.
+
+test
